@@ -1,0 +1,11 @@
+{
+  "name": "crwpong",
+  "version": "1.0.0",
+  "description": "The Crw's pong.",
+  "main": "index.js",
+  "author": "Wolfram Kriesing",
+  "license": "MIT",
+  "dependencies": {
+    "react-native": "^0.35.0"
+  }
+}
