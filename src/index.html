@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<title>Crwpong</title>
+<script src="./bonsai-0.4.0.min.js"></script>
+
+<style>
+#player {
+  background: #000;
+  position: absolute;
+  box-shadow: 0 0 20px #000;
+}
+</style>
+
+<div id="player"></div>
+
+<script>
+  bonsai.run(document.getElementById('player'), 'pong.js', {
+    height: 350,
+    width: 500,
+    framerate: 50
+  });
+  window.onresize = function() {
+    player.style.left = (window.innerWidth - 202)/2 - 250 + 'px';
+    player.style.top = window.innerHeight/2 - 175 + 'px';
+  };
+  window.onresize();
+</script>
