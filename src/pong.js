@@ -19,7 +19,7 @@ Pong = (function() {
       width: 20,
       height: 20,
       attr: {
-        fillColor: 'rgb(255,255,255)'
+        fillColor: '#3f403b'
       }
     },
     topPaddle: {
@@ -28,8 +28,7 @@ Pong = (function() {
       left: "a",
       right: "s",
       attr: {
-        fillColor: '#0077FF',
-        fillGradient: gradient.linear(0, ['rgba(0,0,0,.2)', 'rgba(0,0,0,0)'])
+        fillColor: '#e65c2e',
       }
     },
     bottomPaddle: {
@@ -38,8 +37,7 @@ Pong = (function() {
       left: "left",
       right: "right",
       attr: {
-        fillColor: '#FF9500',
-        fillGradient: gradient.linear(0, ['rgba(0,0,0,.2)', 'rgba(0,0,0,0)'])
+        fillColor: '#3f403b',
       }
     }
   };
@@ -121,7 +119,7 @@ Pong = (function() {
     this.width = config.width;
     this.height = config.height;
 
-    this.bs = new Rect(0, 0, this.width, this.height, this.width/2).attr(config.attr);
+    this.bs = new Rect(0, 0, this.width, this.height, 5).attr(config.attr);
 
     this.deltaY = Math.floor(Math.random() * pong.ballSpeed) + 1;
     this.deltaX = pong.ballSpeed - this.deltaY;
