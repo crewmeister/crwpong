@@ -14,10 +14,10 @@ cache:
     - ~/.nvm
 
 script:
-- yarn test
+  - yarn run test
 
 after_success:
-- yarn run build
+  - yarn run build
 
 deploy:
   provider: script
