@@ -1,0 +1,23 @@
+language: node_js
+
+node_js:
+- stable
+
+install:
+- npm install
+
+script:
+- npm test
+
+after_success:
+- npm run build
+
+deploy:
+  provider: script
+  script: ./scripts/deploy-to-ghpages.sh
+  skip_cleanup: true
+
+env:
+  global:
+  - GH_REF: github.com/crewmeister/crwpong.git
+  - secure: ????
