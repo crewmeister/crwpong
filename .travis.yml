@@ -13,9 +13,6 @@ cache:
     - ~/.yarn
     - ~/.nvm
 
-script:
-  - yarn run test
-
 after_success:
   - yarn run build
 
