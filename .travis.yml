@@ -1,16 +1,23 @@
 language: node_js
 
 node_js:
-- stable
+  - "stable"
 
+# thanks to https://gist.github.com/MrRio/5071b11a1d02bae30f70ab527c5f2529
 install:
-- npm install
+  - npm -g install yarn
+  - yarn
+
+cache:
+  directories:
+    - ~/.yarn
+    - ~/.nvm
 
 script:
-- npm test
+- yarn test
 
 after_success:
-- npm run build
+- yarn run build
 
 deploy:
   provider: script
@@ -20,4 +27,5 @@ deploy:
 env:
   global:
   - GH_REF: github.com/crewmeister/crwpong.git
-  - secure: ????
+  - secure: "g8UrfSmi1dCet9N9IgDusmpOsp+vQe8e0bnGt8Hzuh4+RgtbQw4sJOWk4f7qdz2/Kj5tb5WbqUNdSwtkfXgm4zNhBZ0pn8D6K3FmISQqibfjkVDJvR0hbi66xS+9TXWcI4gMy4dJ1aCmOWjUtiYvzT+kXy7GdWQxq3cOY3nkT6qaPXpLBZ6ccNpJ2U2DDws/Otpu5SHv4YDyxsgfeLkDnpPYYdlq+6Alm6aQt7wWqSMAmFriR7FsGyuRSIJ3r+3nT/4HyOYmWYy9z3FLi6T7f4i8fSo5OPxU80K4JII5CHGo804dhCAsyT5K5sntYWuMqYMYATK2ApFQ8mJXS53cXprrlmbhWPczM9SzTTgjLCupvQm6U71CSKK6LWUoXU3v7MZbCTceA0AByJE9WUO1LbfwP/Hli3/wkvNAadI6cznc0ZZBq8LCq/FcfXLEtp5Tb1ndb3/VKMZ1wDIObEBcTjiQ6gEayvMJreizqyJZ+qetk2E3fc4l182qM5fKaUYwl/ncj5UjpionruwuKFZN8+Zgcj2F5McLnVKUuX3r/FlxKJDphouUsCFJSoM1tVl1dg9mlnVjX8Ah3ZBIN7YnTAgDraAc9AS0o0HuYYnI2qEFKc0tMzKmqw4wU6Hx6FPlFMUPlN7iaJWsYEh7EYTgA08R2Go0rIPZjLwj3dK2hlg="
+

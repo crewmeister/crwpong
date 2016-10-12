@@ -5,6 +5,10 @@
   "main": "index.js",
   "author": "Wolfram Kriesing",
   "license": "MIT",
+  "scripts": {
+    "test": "echo ''",
+    "build": "mkdir dist; cp src/* dist"
+  },
   "dependencies": {
     "react-native": "^0.35.0"
   }
