@@ -11,10 +11,10 @@ Pong = (function() {
    * Setup default settings
    */
   var defaults = {
-    width: 500,
-    height: 350,
-    ballSpeed: 7,
-    paddleSpeed: 7,
+    width: stage.options.width,
+    height: stage.options.height,
+    ballSpeed: 13,
+    paddleSpeed: 13,
     ball: {
       width: 20,
       height: 20,

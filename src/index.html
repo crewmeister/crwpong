@@ -13,14 +13,16 @@
 <div id="player"></div>
 
 <script>
-  bonsai.run(document.getElementById('player'), 'pong.js?' + new Date, {
-    height: window.innerHeight - 20,
-    width: window.innerWidth - 20,
+
+  var spacing = 0.15;
+  bonsai.run(document.getElementById('player'), 'pong.js', {
+    height: window.innerHeight * (1 - 2 * spacing),
+    width: window.innerWidth * (1 - 2 * spacing),
     framerate: 50
   });
   window.onresize = function() {
-    player.style.left = '10px';
-    player.style.top = '10px';
+    player.style.top = (window.innerHeight * spacing) + 'px';
+    player.style.left = (window.innerWidth * spacing) + 'px';
   };
   window.onresize();
 </script>
