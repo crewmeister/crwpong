@@ -14,7 +14,7 @@ cache:
     - ~/.nvm
 
 after_success:
-  - yarn run build
+  - npm run build
 
 deploy:
   provider: script
