@@ -28,7 +28,7 @@ Pong = (function() {
       left: "a",
       right: "s",
       attr: {
-        fillColor: '#e65c2e',
+        fillColor: '#ed7911',
       }
     },
     bottomPaddle: {
@@ -451,12 +451,59 @@ Pong = (function() {
 
 })();
 
+function crewmeisterLogoAnimation(onDone) {
+  // var topLeft = { x: 0, y: 0 };
+  // var lineHeight = 50;
+  // var barHeight = lineHeight / 2;
+  // var oranges = { start: '#ed7911', end: '#e85825' };
+  // var blacks = { start: '#3f3f3c', end: '#3f3f3c' };
+  // var cornerRadius = 5;
+  //
+  // var orangeGradient = gradient.linear(0, [oranges.start, oranges.end]);
+  // var orangeBarAttrs = { cornerRadius: cornerRadius, fillGradient: orangeGradient };
+  // var blackGradient = gradient.linear(0, [blacks.start, blacks.end]);
+  // var blackBarAttrs = { cornerRadius: cornerRadius, fillGradient: blackGradient };
+  //
+  // var logo = new Group().addTo(stage);
+  // var orange1 = new Rect(topLeft.x, topLeft.y, 200, barHeight)
+  //   .attr(orangeBarAttrs).addTo(logo);
+  // var orange2 = new Rect(200 + barHeight, lineHeight, 100, barHeight)
+  //   .attr(orangeBarAttrs).addTo(logo);
+  // var black1 = new Rect(150, lineHeight, 50, barHeight)
+  //   .attr(blackBarAttrs).addTo(logo);
+  // var black2 = new Rect(225, 2 * lineHeight, 200, barHeight)
+  //   .attr(blackBarAttrs).addTo(logo);
+  //
+  // logo.animate('1s', { opacity: 0.2 }, { onEnd: showButton });
+
+  var button = new Group().attr({ x: stage.options.width/2 - 70, y: 200 });
+  var buttonBg = new Rect(0, 0, 130, 30)
+    .attr({ fillColor: '#fea33a' })
+    .addTo(button);
+  var text = new Text('Spielen...')
+    .attr({ x: 20, y: 10, textFillColor: 'white', fontSize: '15px'
+    })
+    .addTo(button);
+  button.on('click', function() {
+      // logo.destroy();
+      button.destroy();
+      onDone();
+    });
+
+  function showButton() {
+    button.addTo(stage);
+  }
+  showButton();
+}
+
 // sound
 audioSprite = new Audio([
   { src: 'pong.mp3' },
   { src: 'pong.ogg' }
 ]).prepareUserEvent().addTo(stage).on('load', function() {
-  new Pong().start();
+  crewmeisterLogoAnimation(function() {
+    new Pong().start();
+  });
 });
 
 var timeoutId = null;
