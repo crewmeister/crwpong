@@ -16,13 +16,13 @@
 
   var spacing = 0;
   bonsai.run(document.getElementById('player'), 'pong.js', {
-    height: window.innerHeight * (1 - 2 * spacing),
-    width: window.innerWidth * (1 - 2 * spacing),
+    height: window.innerHeight - 2,
+    width: window.innerWidth - 2,
     framerate: 50
   });
   window.onresize = function() {
-    player.style.top = (window.innerHeight * spacing) + 'px';
-    player.style.left = (window.innerWidth * spacing) + 'px';
+    player.style.top = '1px';
+    player.style.left = '1px';
   };
   window.onresize();
 </script>
