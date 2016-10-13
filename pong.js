@@ -11,10 +11,10 @@ Pong = (function() {
    * Setup default settings
    */
   var defaults = {
-    width: 500,
-    height: 350,
-    ballSpeed: 7,
-    paddleSpeed: 7,
+    width: stage.options.width,
+    height: stage.options.height,
+    ballSpeed: 13,
+    paddleSpeed: 13,
     ball: {
       width: 20,
       height: 20,
@@ -451,22 +451,11 @@ Pong = (function() {
 
 })();
 
-// popup
-var popup = new Group().addTo(stage).attr({ x: 140, y: 120});
-new Rect(0, 0, 200, 100, 10)
-  .fill(gradient.linear(0, ['red', 'yellow']))
-  .stroke('green', 2)
-  .addTo(popup);
-new Text('Go!').attr({
-  textFillColor: 'white', fontFamily: 'Arial', fontSize: 60, x: 50, y: 30
-}).addTo(popup);
-
 // sound
 audioSprite = new Audio([
   { src: 'pong.mp3' },
   { src: 'pong.ogg' }
 ]).prepareUserEvent().addTo(stage).on('load', function() {
-  popup.destroy();
   new Pong().start();
 });
 
